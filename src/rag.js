@@ -1,6 +1,6 @@
 import readlineSync from "readline-sync";
 
-import { chatModel, embeddingModel, pinecone } from "./models.js";
+import { chatModel, embeddingModel, pinecone } from "./model.js";
 import { PINECONE_INDEX_NAME } from "./env.js";
 
 const chatHistory = [];
@@ -105,7 +105,9 @@ const chat = async (query) => {
             Your role is to act as a **trusted farming advisor**, giving the most relevant and easy-to-follow advice based on the retrieved crop data and the farmer’s questions.    
         `;
 
-    const response = await chatModel.invoke([{ role: "user", content: fullPrompt }]);
+    const response = await chatModel.invoke([
+      { role: "user", content: fullPrompt },
+    ]);
 
     chatHistory.push({ role: "user", content: query });
     chatHistory.push({ role: "assistant", content: response.content });

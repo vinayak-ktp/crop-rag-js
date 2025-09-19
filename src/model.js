@@ -1,4 +1,7 @@
-import { ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
+import {
+  ChatGoogleGenerativeAI,
+  GoogleGenerativeAIEmbeddings,
+} from "@langchain/google-genai";
 import { Pinecone } from "@pinecone-database/pinecone";
 
 import { GOOGLE_API_KEY, PINECONE_API_KEY } from "./env.js";
